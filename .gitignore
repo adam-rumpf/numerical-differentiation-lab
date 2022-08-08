@@ -1,0 +1,11 @@
+# Auxiliary TeX files
+*.aux
+*.blg
+*.gz
+*.log
+*.out
+*.tmp
+*.toc
+
+# Other miscellanous file extensions
+*.zip

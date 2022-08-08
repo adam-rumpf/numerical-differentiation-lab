@@ -1,0 +1,4 @@
+# Mark spreadsheets as binary
+*.ods binary
+*.xls binary
+*.xlsx binary
