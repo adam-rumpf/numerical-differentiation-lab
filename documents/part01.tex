@@ -1,0 +1,29 @@
+\newpage
+\section{Instantaneous Velocity of a Weather Balloon}
+\label{sec:balloon}
+
+As noted above, average velocity is easy to compute, but we don't yet have a way to approach computing instantaneous velocities. In this activity you will work with a (lightly edited) set of position data gathered from a weather balloon launched from the Salton Sea weather station on February~28,~2021\footnote{F.~M.~Ralph, A.~M.~Wilson, R.~Demirdjian, D.~Alden, C.~Hecht, C.~J.~Ellis, B.~Kawzenuk, F.~Cannon, A.~Cooper, and K.~Paulsson. Radiosonde Data Collected During California Storms. UC~San~Diego Library Digital Collections, Dataset, 2021. \href{https://doi.org/10.6075/J09P31S0}{doi:10.6075/J09P31S0}} to try to see how we might approach the problem of how to describe the balloon's instantaneous velocity.
+
+%%%
+\subsection*{Activity}
+
+\begin{enumerate}[\bf {\thesection}a.]
+	\item Open the activity spreadsheet \verb|rates_of_change.xlsx| and make sure that you're on the first tab, labeled ``Weather Balloon''. You should see two columns of data:~column~\textbf{A} indicates the time~(in~seconds) since the balloon's launch and column~\textbf{B} indicates the position~(in~meters) of the balloon relative to its launch position\footnote{Actually, only the balloon's position in the longitudinal direction is included here. The original data set included latitudes and altitudes, but for this activity we're going to pretend that all of its motion occurs in a single direction. Describing more complicated movement in~3D space is a topic for Calculus~III.}.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+% Graph the position function, and answer a few initial questions by visual inspection (where does it look like it was moving the fastest, forward, backward, standing still, etc.)
+% Lead up with some preliminary numerical experiments to find *average* velocities over a few specified intervals. Have the student observe how their estiamtes seem to behave as the interval shrinks. Include intervals that approach from both sides.
+% Have the student use finite differences to plot velocity estimates over all possible intervals. Have them note what happens to the value exactly on top of the specified time. Have them graph only the nearby values to note the "hole".
+% Since we only have discrete data there's a large gap in the rate of change graph, so the best we can do if we want a reasonable estimate of the instantaneous rate of change is to take one of the nearby values. Ask the student how the situation would be different if we had a closed-form function rather than a data table. Then there wouldn't be such a massive gap, but it would still be true that we can't use a step size of zero.
+% Having established that we can't really use this method to find an average velocity between the same point twice, note that we can at least take a *small* interval, say between adjacent measurements. Generate an approximate rate-of-change function by using these single-step finite differences.
+% Answer some questions by comparing the two graphs.
+
+

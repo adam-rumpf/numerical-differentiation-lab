@@ -17,54 +17,38 @@
 %==============================================================================
 \section*{Introduction}
 
-\textcolor{red}{Introductory paragraphs}
+Calculus, broadly speaking, is the study of \textit{rates of change}. That is, calculus is the branch of mathematics required whenever we want to describe a how one quantity changes with respect to another. This makes it of particular importance in physics, which is largely about studying how objects move through space as time advances, but anything that changes over time (like a chemical reaction, an electrical charge, a population, or a stock price) can be studied more closely using calculus.
+
+One of the most important rates of change in physics, and a good place for us to start our introduction to calculus, is \textit{velocity}, the rate of change in an object's position with respect to time. From high school physics you should already be familiar with one type of velocity:~the \textit{average velocity} over some interval of time. For example, if a car is driving along a highway and it crosses mile marker~74 at~2:16pm and then mile marker~106 at~2:41pm, then its average velocity between~2:16pm and~2:41pm is
+\begin{align*}
+	v_{\text{avg}} &= \frac{\text{change in position between 2:16 and 2:41}}{\text{change in time between 2:16 and 2:41}} = \frac{\text{106 mi $-$ 74 mi}}{\text{41 min $-$ 16 min}} = \frac{\text{32 mi}}{\text{25 min}} = 1.28~\frac{\text{mi}}{\text{min}}
+\end{align*}
+
+which is~$76.8$~mph. Average velocity is perfectly easy to define and compute (it's what's called a \textit{difference quotient}, which is exactly what it sounds like), but it doesn't tell us everything about the car's motion. The car's speed probably wasn't exactly~76.8~mph over the entire time interval; it was probably traveling slightly faster at some times and slightly slower at others. Presumably if we had more information (more positions at more times) we would be able to describe the car's \textit{instantaneous velocity}, or its velocity at a specific moment in time.
+
+Instantaneous velocity seems like a simple concept, and in everyday speech we often talk about how fast something is happening ``right now'' or at some other specific moment in time. However, mathematics is all about making vague ideas precise enough to actually use in applications, and it turns out that the notion of instantaneous velocity is surprisingly tricky to define in a sensible, usable way. This worksheet will take you through a sequence of numerical experiments and activities to get you to play around with these ideas for yourself to build up an intuition about how to approach rates of change.
+
+%%%
+\subsection*{Required Materials}
+
+This lab includes computational activities in the provided spreadsheet file \verb|rates_of_change.xlsx|. You will need Microsoft Excel\footnote{\url{https://www.microsoft.com/en-us/microsoft-365/excel}} installed in order to access and work with the file. If you cannot access Excel, there are several functionally-equivalent free alternatives that will work just as well (we recommend either Google Sheets\footnote{\url{https://www.google.com/sheets/}} or LibreOffice Calc\footnote{\url{https://www.libreoffice.org/discover/calc/}}).
+
+It is expected that you have some basic familiarity with how to use Excel to perform basic computations, including how to use cell formulas, how to reference other cells, and how to generate plots. If not, the best way to learn is simply to try using it to solve some problems, asking for help from your classmates or the instructor or looking up help online when you get stuck. Using Excel is a skill, and like any skill there is no substitute for practice.
 
 %%%
 \subsection*{Learning Objectives}
 
 After completing this project, you should be able to:
 \begin{itemize}
-	\item \textcolor{red}{List of learning objectives}
+	\item Explain how the idea of an instantaneous rate of change is related to average rates of change.
+	\item Use a computer to help to answer questions about a function's rate of change, like when its value is increasing/decreasing/constant and when it is changing the fastest.
+	\item Work with a real-world function defined as a table of values rather than as a simple formula.
+	\item Be comfortable using a computer alongside analytical work by hand in order to solve a complicated problem.
 \end{itemize}
 
-% Data set to use: Weather balloon data. Some of them have sufficiently-interesting latitude or longitude functions. Try finding a series with an interesting longitude function, since longitude can be directly converted into meters easily while latitude depends on the longitude.
-
-% Start with position data and attempting to find velocity at a particular point, which seems like it should be simple.
-% Find the average velocity over a given time span by hand, then using Excel.
-% Shrink the time span and note the pattern.
-% Plot the velocity estimates as a function of all possible average velocities and graph the result, which has a hole in it.
-% Now repeat the previous, but explained from a graphical perspective. Plot the position function. Find what the first average velocity corresponds to graphically, in terms of the two position points (it's the slope of the line between them). Work towards the idea that the instantaneous rate of change in the function is the same thing as the slope of its graph.
-% There's nothing special about the one time we were looking at earlier, so use "small" step sizes to approximate the rate-of-change function of the position function, i.e. the velocity function of the object. Note the graphical relationship between the two.
-% Repeat the same for a different type of data, like temperature as a function of latitude/longitude, to clarify that rates of change work even when we're not talking about position versus time. Graphically estimate the time at which the temperature was increasing the fastest, or when the temperature was (at least momentarily) constant.
-% Finally go through a few basic families of function, like sine, exp, and log. Estimate the rate of change function for each, plot against the original, and come up with a conjecture for what its rate of change function is.
-
-% (Overall: Start with a very small data series and/or function, simple enough for the student to work with by hand, then move up to a very large data series.)
-% (Overall: The eventual goal is to get students working on open-ended projects and communicating technical information. Rather than making this a blow-by-blow sequence of tasks to complete, present each major section as being its own open-ended investigation where it's up to the student to answer one overarching question.)
-% In introducing the relationship between slopes and rates of change, ask the student why converting a numerical question into a geometric one might be useful. There are lots of possible answers, including the fact that it makes things easier to visualize and understand, and that it allows us to use all of the geometric things we know from precalculus (the idea of converting one kind of mathematical question into another is very common and useful since it allows us to reuse previous work to answer new questions).
-% Start with a position function, and have the student compute some average velocities between different points.
-% Then do the same thing, this time with a table of position values that the student generates from the given function.
-% Introduce the idea of instantaneous velocity, and how it relates to slope.
-% Estimate instantaneous velocity at a point, then repeat for all points to estimate the velocity function.
-	% Answer some questions about how the two relate to each other geometrically.
-% Focus on one point, and estimate the instantaneous velocity there using different step sizes. Note that they seem to settle down as the step size approaches zero.
-% Plot the average velocity as a function of the step size. Note the #DIV/0! error when the step size is exactly zero, and the corresponding hole in the graph, but also note that everything seems well-behaved around that point, and motivate the idea of using limits to find what point "should" go there.
-% Introduce everything in terms of a "rate-of-change" function, which in the special case of position is just "velocity".
-
-% Go through a few common functions like e^x and sin(x) to explore their rates of change, and have the student conjecture what their rate-of-change functions are. Maybe also try sin(2x) and sin(x^2), and have the student explain why the rate-of-change function is shaped the way that it is.
-
 %==============================================================================
-\section{\textcolor{red}{Section Title}}
-\label{sec:sectiontitle}
 
-\textcolor{red}{Section description}
-
-%%%
-\subsection*{Activity}
-
-\textcolor{red}{Activity introduction}
-
-\begin{enumerate}[\bf {\thesection}a.]
-	\item \textcolor{red}{Parts of activity}
-\end{enumerate}
+% Instantaneous Velocity of a Weather Balloon
+\input{part01.tex}
 
 \end{document}
