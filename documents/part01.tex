@@ -8,22 +8,43 @@ As noted above, average velocity is easy to compute, but we don't yet have a way
 \subsection*{Activity}
 
 \begin{enumerate}[\bf {\thesection}a.]
-	\item Open the activity spreadsheet \verb|rates_of_change.xlsx| and make sure that you're on the first tab, labeled ``Weather Balloon''. You should see two columns of data:~column~\textbf{A} indicates the time~(in~seconds) since the balloon's launch and column~\textbf{B} indicates the position~(in~meters) of the balloon relative to its launch position\footnote{Actually, only the balloon's position in the longitudinal direction is included here. The original data set included latitudes and altitudes, but for this activity we're going to pretend that all of its motion occurs in a single direction. Describing more complicated movement in~3D space is a topic for Calculus~III.}.
+	\item Open the activity spreadsheet \verb|rates_of_change.xlsx| and make sure that you're on the first tab, labeled ``Weather Balloon''. You should see two very long columns of data:~column~\textbf{A} indicates the time~(in~seconds since the launch) and column~\textbf{B} indicates the position~(in~meters north of the launch site) of the balloon\footnote{Only the balloon's position in the longitudinal direction is included here. The original data set included latitudes and altitudes, but for this activity we're going to pretend that all of its motion occurs in a single direction. Describing more complicated movement through~3D space is a topic for Calculus~III.}. The data series includes~5409 times in~1-second increments spanning a period of just over~1.5~hours.
+	
+	\item Shortly we will be computing some velocity measurements for the balloon, but before that we can at least try to come up with some preliminary results using our eyes. Graph the balloon's position versus time, and use the graph to estimate the following:
+	\begin{enumerate}[i.]
+		\item Over what time interval was the balloon moving north? South?
+		\item Are there any times at which the balloon stopped moving momentarily?
+		\item At what time was the balloon moving the fastest?
+	\end{enumerate}
+	
+	Explain the reasoning behind all of your guesses.
+	
+	\item Over the next few parts we will attempt to answer one fundamental question:~What was the \textit{instantaneous} velocity of the balloon at time~60~seconds? We will work our way up to that answer by starting with a few smaller, simpler numerical experiments.
+	
+	It's not immediately obvious how to compute an instantaneous velocity, but we know exactly how to compute an \textit{average} velocity, so that might be a good place to start. At least intuitively we might expect the instantaneous velocity at~60~seconds to be similar to the average velocities over time intervals that are ``close~to''~60.
+	
+	Compute the average velocity of the balloon over the time interval from~60 to~70 seconds. Then try it from~60 to~65 seconds, then from~60 to~61 seconds. What are the units of the values you've just computed? If you had to choose one of them as your ``best guess'' for the instantaneous velocity at time~60, which would you pick? Why do you think your choice is more reasonable than the others?
+	
+	\item We can use Excel to quickly automate this process to compute many different average velocities over many different time intervals. Generate a new column that contains the average velocity between \textit{every} time and~60. For example, the entry in the row for time~16 should compute the average velocity between~60 and~16 seconds, the entry in the row for time~763 should compute the average velocity between~60 and~763, and so on\footnote{Hint:~In Excel, a dollar sign~(\texttt{\$}) can be used to keep part of a cell reference constant within a formula as it is copied into other cells. In this case each average velocity computation needs to reference cells in two different rows, one of which should remain constant (the reference for time~60) and one of which should not (the reference for the other time's row).}.
+	
+	\item Graph these average velocities versus time. You should see what appears to be a relatively normal, well-behaved, continuous-looking function.
+	
+	It's hard to see what's happening around time~60 in this graph due to the scale. Try graphing the average velocities again, this time only including times between~50 and~70~seconds. What happens to the graph immediately around~60~seconds? What happens to it exactly at~60 seconds?
+	
+	\item We started looking at average velocities based on the idea that an average velocity over an interval ``close~to''~60 should give us some idea of the instantaneous velocity there. Look up the average velocity that your Excel formula actually computed at time~60. Why has it resulted in an error?
+	
+	\item Based on the previous experiments, apparently it's not possible for us to compute an instantaneous velocity at a time by just computing an average velocity over a time interval of zero width. Since the weather balloon's position is given to us as a set of finitely-many discrete values there is a smallest nonzero time interval that we can consider (1~second). In class we will see how all of this changes for a \textit{continuous} position function, but for now let's continue to work with the idea that we can at least \textit{approximate} an instantaneous velocity at a time by using an average velocity over a small time span around that time.
+	
+	Apply this idea to generate a new column that contains an instantaneous velocity estimate for \textit{every} time. For example, the entry in the row for time~16 should compute an approximation for the instantaneous velocity at time~16, the entry in the row for time~763 should compute an approximation for the instantaneous velocity at time~763, and so on\footnote{Hint:~Most of the cells can be handled with a single formula copied into every row, but the first and last rows may need to be handled separately, since any average velocity computed for the first time cannot include data from an earlier time, and any average velocity computed for the last time cannot include data from a later time.}.
+	
+	\item Graph these (approximate) instantaneous velocities versus time. You should see a somewhat jagged but still relatively well-behaved and continuous-looking graph. Use the velocity graph to estimate the following:
+	\begin{enumerate}[i.]
+		\item Over what time interval was the balloon moving north? South?
+		\item Are there any times at which the balloon stopped moving momentarily?
+		\item At what time was the balloon moving the fastest?
+	\end{enumerate}
+	
+	Explain the reasoning behind all of your guesses.
+	
+	\item Finally, look at your velocity graph alongside your original position graph. What is happening to the shape of the position graph where the velocity graph crosses the $x$-axis? When it's positive? When it's negative?
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-% Graph the position function, and answer a few initial questions by visual inspection (where does it look like it was moving the fastest, forward, backward, standing still, etc.)
-% Lead up with some preliminary numerical experiments to find *average* velocities over a few specified intervals. Have the student observe how their estiamtes seem to behave as the interval shrinks. Include intervals that approach from both sides.
-% Have the student use finite differences to plot velocity estimates over all possible intervals. Have them note what happens to the value exactly on top of the specified time. Have them graph only the nearby values to note the "hole".
-% Since we only have discrete data there's a large gap in the rate of change graph, so the best we can do if we want a reasonable estimate of the instantaneous rate of change is to take one of the nearby values. Ask the student how the situation would be different if we had a closed-form function rather than a data table. Then there wouldn't be such a massive gap, but it would still be true that we can't use a step size of zero.
-% Having established that we can't really use this method to find an average velocity between the same point twice, note that we can at least take a *small* interval, say between adjacent measurements. Generate an approximate rate-of-change function by using these single-step finite differences.
-% Answer some questions by comparing the two graphs.
-
-

@@ -6,21 +6,34 @@
 
 \thispagestyle{fancy} % Add footer to first page only
 
-\noindent \textcolor{red}{Include brief instructions for how this lab is meant to be used.}
+This computer lab is meant to be used as an introductory activity in a Calculus~I course. It asks the students to explore concepts like average and instantaneous rates of change from a computational perspective using Excel spreadsheets.
 
 %==============================================================================
 \subsection*{Learning Goals}
 
-\textcolor{red}{List major learning goals. The lab might be intended to reinforce or to substitute for a particular book section.}
+The primary mathematical goal of this activity is to introduce students to fundamental concepts of differential calculus by allowing them to experiment with computing rates of change, however there is also a soft goal of removing students from their comfort zones to try to get them to think about college-level mathematics in a new way. As such a large number of the activities revolve around the student figuring out how to apply their understanding of a concept to answer an open-ended question, like being able to look at a rate-of-change graph to answer qualitative questions about how a quantity changes at a particular point.
 
 %==============================================================================
 \subsection*{Prerequisites}
 
-\textcolor{red}{Include any topics that need to be covered before this lab. Possibly include a reference to a particular book section where this lab should fall.}
+As this activity is meant for use at the beginning of Calculus~I, no knowledge of calculus is assumed, however it is assumed that students will have some familiarity with using Excel. If not, it may be a good idea to preface the lab with a brief Excel primer. Important functionality to point out includes:~using cell formulas, using relative and absolute cell references, and plotting.
 
 %==============================================================================
-\subsection*{Solutions and Notes}
+\subsection*{Activity Notes}
 
-\textcolor{red}{Include specific notes for each worksheet problem, including presentation notes and potential variations. If appropriate, include full solutions.}
+The exact format for how this activity should be presented and what should be submitted is up to the instructor. The lab, itself, is relatively light on explanation and mostly consists of a sequence of numerical experiments for the students to go through and questions for them to answer. It is expected that the activity will be used alongside some instruction.
+
+Throughout this activity, be sure to focus on the general approach that professional mathematicians generally take to solving problems, which is quite different than what most high school students will be used to. Most students are comfortable memorizing and applying formulas, and have (understandably) come to believe that that's all math is. However the work that real mathematicians do places much more emphasis on conceptual understanding, problem solving, and numerical experimentation to come up with quick and dirty results and conjectures. Encourage the students to play around with ideas and to experiment with things, which the computer makes it easy to do quickly and easily.
+
+%%%
+\subsubsection*{Part~1:~Instantaneous Velocity of a Weather Balloon}
+
+Many students fresh from high school or precalculus will be used to functions that look like~$f(x) = x^2 - 2x + 1$, being defined by a simple closed-form formula. Spend some time highlighting the fact that a data table like the one included in the spreadsheet is still a perfectly good function, in the sense that it's still a rule that assigns an output to every input in a domain. Also highlight the fact that, in the real world, this is what most functions we deal with look like. Having a simple formula to work with is nice but rare, and in applied math we often have to deal with functions by using purely numerical computations. In spite of the fact that they'll be spending a lot of time in class learning how to analytically differentiate simple, closed-form functions, in practice we often \textit{have} to result to the types of numerical approximations that this activity uses. This also provides a great opportunity to highlight the importance of computers in modern mathematics, since having to compute thousands of cell values by hand would be virtually impossible.
+
+Students are likely to struggle with the average velocity computations, which require a good working knowledge of how to combine relative and absolute cell references in Excel to keep the reference to time~60 constant while the other time increments. It would be useful to walk them through some demonstrations for how to use them.
+
+The main purpose of the average velocity computations is to notice a couple of things about how average velocity varies as a function of the step size, so you might want to nudge the students in the right direction. In short, looking at the graph of the function, it seems like the average velocity is a nice, continuous, well-behaved function that just happens to have a hole at the one input we wanted to find (the one where the step size is zero). The fact that this graph appears continuous, but has a hole in it, is what motivates the need for limits in calculus, since limits are essentially the mathematical tool we use to find which value ``should'' fill the hole.
+
+This introductory problem uses velocity as an example of a rate of change.
 
 \end{document}
