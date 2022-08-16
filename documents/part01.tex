@@ -1,5 +1,6 @@
 \newpage
-\section{Instantaneous Velocity of a Weather Balloon}
+%\section{Instantaneous Velocity of a Weather Balloon}
+\section*{Instantaneous Velocity of a Weather Balloon}
 \label{sec:balloon}
 
 As noted above, average velocity is easy to compute, but we don't yet have a way to approach computing instantaneous velocities. In this activity you will work with a (lightly edited) set of position data gathered from a weather balloon launched from the Salton Sea weather station on February~28,~2021\footnote{F.~M.~Ralph, A.~M.~Wilson, R.~Demirdjian, D.~Alden, C.~Hecht, C.~J.~Ellis, B.~Kawzenuk, F.~Cannon, A.~Cooper, and K.~Paulsson. Radiosonde Data Collected During California Storms. UC~San~Diego Library Digital Collections, Dataset, 2021. \href{https://doi.org/10.6075/J09P31S0}{doi:10.6075/J09P31S0}} to try to see how we might approach the problem of how to describe the balloon's instantaneous velocity.
@@ -7,17 +8,18 @@ As noted above, average velocity is easy to compute, but we don't yet have a way
 %%%
 \subsection*{Activity}
 
-\begin{enumerate}[\bf {\thesection}a.]
-	\item Open the activity spreadsheet \verb|rates_of_change.xlsx| and make sure that you're on the first tab, labeled ``Weather Balloon''. You should see two very long columns of data:~column~\textbf{A} indicates the time~(in~seconds since the launch) and column~\textbf{B} indicates the position~(in~meters north of the launch site) of the balloon\footnote{Only the balloon's position in the longitudinal direction is included here. The original data set included latitudes and altitudes, but for this activity we're going to pretend that all of its motion occurs in a single direction. Describing more complicated movement through~3D space is a topic for Calculus~III.}. The data series includes~5409 times in~1-second increments spanning a period of just over~1.5~hours.
+%\begin{enumerate}[\bf {\thesection}a.]
+\begin{enumerate}
+	\item Open the activity spreadsheet \verb|rates_of_change.xlsx| and make sure that you're on the first tab, labeled ``Weather Balloon''. You should see two very long columns of data:~column~\textbf{A} indicates the time~(in~seconds since the launch) and column~\textbf{B} indicates the position~(in~meters north of the launch site) of the balloon\footnote{Only the balloon's position in the longitudinal direction is included here. The original data set included latitudes and altitudes, but for this activity we're going to pretend that all of its motion occurs in a single direction. Describing movement through~3D space is a significantly more complicated topic covered in Calculus~III (Multivariate~Calculus).}. The data series includes~5409 times in~1-second increments spanning a period of just over~1.5~hours.
 	
 	\item Shortly we will be computing some velocity measurements for the balloon, but before that we can at least try to come up with some preliminary results using our eyes. Graph the balloon's position versus time, and use the graph to estimate the following:
-	\begin{enumerate}[i.]
+	\begin{itemize}
 		\item Over what time interval was the balloon moving north? South?
 		\item Are there any times at which the balloon stopped moving momentarily?
 		\item At what time was the balloon moving the fastest?
-	\end{enumerate}
+	\end{itemize}
 	
-	Explain the reasoning behind all of your guesses.
+	Explain the reasoning behind each of your guesses.
 	
 	\item Over the next few parts we will attempt to answer one fundamental question:~What was the \textit{instantaneous} velocity of the balloon at time~60~seconds? We will work our way up to that answer by starting with a few smaller, simpler numerical experiments.
 	
@@ -25,7 +27,9 @@ As noted above, average velocity is easy to compute, but we don't yet have a way
 	
 	Compute the average velocity of the balloon over the time interval from~60 to~70 seconds. Then try it from~60 to~65 seconds, then from~60 to~61 seconds. What are the units of the values you've just computed? If you had to choose one of them as your ``best guess'' for the instantaneous velocity at time~60, which would you pick? Why do you think your choice is more reasonable than the others?
 	
-	\item We can use Excel to quickly automate this process to compute many different average velocities over many different time intervals. Generate a new column that contains the average velocity between \textit{every} time and~60. For example, the entry in the row for time~16 should compute the average velocity between~60 and~16 seconds, the entry in the row for time~763 should compute the average velocity between~60 and~763, and so on\footnote{Hint:~In Excel, a dollar sign~(\texttt{\$}) can be used to keep part of a cell reference constant within a formula as it is copied into other cells. In this case each average velocity computation needs to reference cells in two different rows, one of which should remain constant (the reference for time~60) and one of which should not (the reference for the other time's row).}.
+	\newpage
+	
+	\item We can use Excel to quickly automate this process to compute many different average velocities over many different time intervals. Use column~\textbf{C} to compute the average velocity between \textit{every} time and time~60. For example, the entry in the row for time~16 should compute the average velocity between~60 and~16 seconds, the entry in the row for time~763 should compute the average velocity between~60 and~763, and so on\footnote{Hint:~In Excel, a dollar sign~(\texttt{\$}) can be used to keep part of a cell reference constant within a formula as it is copied into other cells. In this case each average velocity computation needs to reference cells in two different rows, one of which should remain constant (the reference for time~60) and one of which should not (the reference for the other time's row).}.
 	
 	\item Graph these average velocities versus time. You should see what appears to be a relatively normal, well-behaved, continuous-looking function.
 	
@@ -35,16 +39,16 @@ As noted above, average velocity is easy to compute, but we don't yet have a way
 	
 	\item Based on the previous experiments, apparently it's not possible for us to compute an instantaneous velocity at a time by just computing an average velocity over a time interval of zero width. Since the weather balloon's position is given to us as a set of finitely-many discrete values there is a smallest nonzero time interval that we can consider (1~second). In class we will see how all of this changes for a \textit{continuous} position function, but for now let's continue to work with the idea that we can at least \textit{approximate} an instantaneous velocity at a time by using an average velocity over a small time span around that time.
 	
-	Apply this idea to generate a new column that contains an instantaneous velocity estimate for \textit{every} time. For example, the entry in the row for time~16 should compute an approximation for the instantaneous velocity at time~16, the entry in the row for time~763 should compute an approximation for the instantaneous velocity at time~763, and so on\footnote{Hint:~Most of the cells can be handled with a single formula copied into every row, but the first and last rows may need to be handled separately, since any average velocity computed for the first time cannot include data from an earlier time, and any average velocity computed for the last time cannot include data from a later time.}.
+	Apply this idea to compute an instantaneous velocity estimate for \textit{every} time in column~\textbf{D}. For example, the entry in the row for time~16 should compute an approximation for the instantaneous velocity at time~16, the entry in the row for time~763 should compute an approximation for the instantaneous velocity at time~763, and so on\footnote{Hint:~Most of the cells can be handled with a single formula copied into every row, but the first and last rows may need to be handled separately, since any average velocity computed for the first time cannot include data from an earlier time, and any average velocity computed for the last time cannot include data from a later time.}.
 	
 	\item Graph these (approximate) instantaneous velocities versus time. You should see a somewhat jagged but still relatively well-behaved and continuous-looking graph. Use the velocity graph to estimate the following:
-	\begin{enumerate}[i.]
+	\begin{itemize}
 		\item Over what time interval was the balloon moving north? South?
 		\item Are there any times at which the balloon stopped moving momentarily?
 		\item At what time was the balloon moving the fastest?
-	\end{enumerate}
+	\end{itemize}
 	
-	Explain the reasoning behind all of your guesses.
+	Explain the reasoning behind each of your guesses.
 	
 	\item Finally, look at your velocity graph alongside your original position graph. What is happening to the shape of the position graph where the velocity graph crosses the $x$-axis? When it's positive? When it's negative?
 \end{enumerate}

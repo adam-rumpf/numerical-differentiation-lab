@@ -8,6 +8,4 @@ This lab is meant to be completed using [Microsoft Excel](https://www.microsoft.
 
 ## Description
 
-This is a computer lab meant for use near the beginning of a Calculus I course. The lab introduces the idea of a continuous function represented as a discrete time series, and of using that time series to approximate the instantaneous rate of change of the function using difference quotients.
-
-The handout and spreadsheet contain relatively little guidance. It is expected that the instructor will use this activity alongside some presentation material.
+This is a computer lab meant for use near the beginning of a Calculus I course. The lab introduces the idea of a continuous function represented as a discrete time series, and of using that time series to approximate the instantaneous rate of change of the function using difference quotients. It is expected that the instructor will use this activity alongside some presentation material.
